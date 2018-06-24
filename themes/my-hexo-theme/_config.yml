@@ -1,0 +1,28 @@
+menu:
+    博文: /
+    归档: /archives/
+    关于: /about/
+
+widgets:
+- category
+- tag
+- tagcloud
+- archive
+
+# count
+show_count: true
+favicon: /images/favicon.ico
+logo: /images/logo.png
+
+# search
+search:
+  path: search.xml
+  field: post
+
+# Analytics
+# google-analytics:
+ga: UA-65933410-1
+
+# Copyright Infomation
+startyear: 2016
+
