@@ -155,12 +155,6 @@ pm2 start xxx.js
 
 查看程序运行：
 [efun@Nodejskr75 pf-kr-pre]$ pm2 list
-┌──────────────────┬────┬─────────┬───────┬────────┬─────────┬────────┬─────┬───────────┬──────┬──────────┐
-│ App name         │ id │ mode    │ pid   │ status │ restart │ uptime │ cpu │ mem       │ user │ watching │
-├──────────────────┼────┼─────────┼───────┼────────┼─────────┼────────┼─────┼───────────┼──────┼──────────┤
-│ my-app           │ 51 │ cluster │ 4859  │ online │ 6       │ 2h     │ 0%  │ 87.7 MB   │ efun │ disabled │
-│ my-app           │ 52 │ cluster │ 4864  │ online │ 6       │ 2h     │ 0%  │ 98.3 MB   │ efun │ disabled │
-└──────────────────┴────┴─────────┴───────┴────────┴─────────┴────────┴─────┴───────────┴──────┴──────────┘
 
 
 停用运行的程序
@@ -170,12 +164,6 @@ pm2 stop my-app
 [PM2] Applying action stopProcessId on app [my-app](ids: 51,52)
 [PM2] [pf-kq-pre](51) ✓
 [PM2] [pf-kq-pre](52) ✓
-┌──────────────────┬────┬─────────┬───────┬─────────┬─────────┬────────┬─────┬───────────┬──────┬──────────┐
-│ App name         │ id │ mode    │ pid   │ status  │ restart │ uptime │ cpu │ mem       │ user │ watching │
-├──────────────────┼────┼─────────┼───────┼─────────┼─────────┼────────┼─────┼───────────┼──────┼──────────┤
-│ my-app           │ 51 │ cluster │ 0     │ stopped │ 6       │ 0      │ 0%  │ 0 B       │ efun │ disabled │
-│ my-app           │ 52 │ cluster │ 0     │ stopped │ 6       │ 0      │ 0%  │ 0 B       │ efun │ disabled │
-└──────────────────┴────┴─────────┴───────┴─────── ─┴─────────┴────────┴─────┴───────────┴──────┴──────────┘
 
 
 停用后想重启程序，可以使用pm2命令reload。 pm2 reload my-app
@@ -188,9 +176,7 @@ stop并不能清理程序，也不会释放端口，而是要delete：
 [PM2] Applying action deleteProcessId on app [all](ids: 0,1)
 [PM2] [server](1) ✓
 [PM2] [server](0) ✓
-┌──────────┬────┬──────┬─────┬────────┬─────────┬────────┬─────┬─────┬──────────┐
-│ App name │ id │ mode │ pid │ status │ restart │ uptime │ cpu │ mem │ watching │
-└──────────┴────┴──────┴─────┴────────┴─────────┴────────┴─────┴─────┴──────────┘
+
  Use `pm2 show <id|name>` to get more details about an app
 
 
