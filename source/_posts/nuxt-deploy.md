@@ -1,7 +1,7 @@
 ---
 title: 手把手教你部署NUXT项目
 ---
-<!--more-->
+
 下载好脚手架后我们在开发模式下直接使用 <code>npm run dev</code>即可观看、调试我们的项目页面。
 
 项目完毕就准备部署预发布走测试流程。
@@ -9,11 +9,11 @@ title: 手把手教你部署NUXT项目
 [nuxt](https://zh.nuxtjs.org)的部署可以分为两种,一种是静态应用（站点）部署，一种动态应用部署（服务端渲染应用部署）。[可以参考这里](https://zh.nuxtjs.org/guide/commands)
 
 
-###静态应用部署
+# 静态应用部署
 
 静态部署没什么好说的，和hexo一样，写好了内容，执行一下<code>nuxt generate</code>
 然后把根目录下生成的dist文件丢在服务器下即可。
-
+<!--more-->
 可利用下面的命令生成应用的静态目录和文件：
 ``` bash
 npm run generate
@@ -21,7 +21,7 @@ npm run generate
 
 这个命令会创建一个 dist 文件夹，所有静态化后的资源文件均在其中。
 
-###服务端渲染应用（动态）部署
+# 服务端渲染应用（动态）部署
 部署 Nuxt.js 服务端渲染的应用不能直接使用 nuxt 命令，而应该先进行编译构建，然后再启动 Nuxt 服务，可通过以下两个命令来完成：
 
 ``` bash
@@ -67,17 +67,18 @@ const port = process.env.PORT || 8090
 上网查了一下守护进程的工具有很多，因为公司使用的是[pm2](http://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/)，使用我这里就只针对[pm2](http://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/)进行部署。
 还是简单的举例一下[pm2](http://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/)的优势吧！
 
+<div class="tip">
+<p>1、内建负载均衡（使用Node cluster 集群模块）</p>
 
-1、内建负载均衡（使用Node cluster 集群模块）
-2、守护进程，后台运行。
-3、0秒停机重载，我理解大概意思是维护升级的时候不需要停机.
-4、具有Ubuntu和CentOS 的启动脚本
-5、停止不稳定的进程（避免无限循环）
-6、控制台检测
-7、提供 HTTP API
-8、远程控制和实时的接口API ( Nodejs 模块,允许和PM2进程管理器交互 )
-9、简洁明了的可视化窗口和调试信息。
-
+<p>2、守护进程，后台运行。
+<p>3、0秒停机重载，我理解大概意思是维护升级的时候不需要停机.</p>
+<p>4、具有Ubuntu和CentOS 的启动脚本</p>
+<p>5、停止不稳定的进程（避免无限循环）</p>
+<p>6、控制台检测</p>
+<p>7、提供 HTTP API</p>
+<p>8、远程控制和实时的接口API ( Nodejs 模块,允许和PM2进程管理器交互 )</p>
+<p>9、简洁明了的可视化窗口和调试信息。</p>
+</div>
 
 上面都是网上找的优点，在使用过程中我只有明显使用到1、2、3、6、9这几个而已。
 
@@ -88,15 +89,15 @@ const port = process.env.PORT || 8090
 3、0秒停机重载。这个是不是和负载均衡有点异曲同工？
 
 
-##pm2配置
+# pm2配置
 
-###生成脚本
+### 生成脚本
 就像webpack的webpack.config.js和npm包管理的package.json一样。
 pm2的配置脚本也是需要的，我们可以在终端pm2 ecosystem
 
 会在工程下面生成一个ecosystem.config.js。（当然你可以手动新建一个该文件）
 
-###修改脚本
+### 修改脚本
 
 根据项目简简单单的编写一下脚本
 ``` bash
@@ -193,8 +194,8 @@ stop并不能清理程序，也不会释放端口，而是要delete：
  Use `pm2 show <id|name>` to get more details about an app
 
 
-好咯，说了一堆pm2。下面说说使用pm2部署遇到的几个坑点。
 
+好咯，说了一堆pm2。下面说说使用pm2部署遇到的几个坑点。
 
 #坑一：
 部署到线上，需要执行<code>npm run build</code>编译成静态文件（同时压缩js、css等） 。
