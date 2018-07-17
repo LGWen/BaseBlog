@@ -8,12 +8,12 @@ title: 手把手教你部署NUXT项目
 
 [nuxt](https://zh.nuxtjs.org)的部署可以分为两种,一种是静态应用（站点）部署，一种动态应用部署（服务端渲染应用部署）。[可以参考这里](https://zh.nuxtjs.org/guide/commands)
 
-
+<!--more-->
 # 静态应用部署
 
 静态部署没什么好说的，和hexo一样，写好了内容，执行一下<code>nuxt generate</code>
 然后把根目录下生成的dist文件丢在服务器下即可。
-<!--more-->
+
 可利用下面的命令生成应用的静态目录和文件：
 ``` bash
 npm run generate
